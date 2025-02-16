@@ -1,0 +1,27 @@
+{
+    "sections": [
+	{
+	    "type": "fftext",
+	    "header": "",
+	    "body": [
+		"Hello! Thank you for visiting our website!"
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "header": "About us",
+	    "body": [
+		"This is the website of the <b>Caelus System</b>, <u>fdbdd038-c151-4bed-8fdf-fdb02992c758</u>.",
+		"We're a system of nerdy girlthings (including the robotgirl, writing this!).<br>",
+		"We consider ourselves generally ageless and therian, although some of us may feel a stronger attachment to our biological age and/or humanity than the rest. We have infinitely many headmates. This website includes resources on us, and various projects and toys we've collected. We hope you enjoy your stay!"
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "header": "Contact",
+	    "body": [
+		"For private communication, our GPG key is <u>0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD</u>, which can be found on the <a href=\"keyserver.ubuntu.com\">Ubuntu OpenPGP keyserver</a>."
+	    ]
+	}
+    ]
+}

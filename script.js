@@ -10,16 +10,48 @@ function cmd_whoami () {
     return [["This command is deprecated; use `whoarewe' instead.", 1]]
 }
 
-const about_us = `Hello! Thank you for visiting our website!<br>
-<br>
-This is the website of the <b>Caelus System</b>, <u>fdbdd038-c151-4bed-8fdf-fdb02992c758</u>.<br>
-We're a system of nerdy girlthings (including the robotgirl, writing this!).<br><br>
-We consider ourselves generally ageless and therian, although some of us may feel a stronger attachment to our biological age and/or humanity than the rest. We have infinitely many headmates. This website includes resources on us, and various projects and toys we've collected. We hope you enjoy your stay!<br><br>
+function JSONtoHTML (json) {
+    let out = "";
 
-For private communication, our GPG key is <u>0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD</u>, which can be found on the <a href="keyserver.ubuntu.com">Ubuntu OpenPGP keyserver</a>.`;
+    for (section of json.sections) {
+	if (section.type != "fftext") {
+	    continue;
+	}
+	if (section.header != "") {
+	    out = out.concat("<b><u>", section.header, "</u></b><br>\n")
+	}
+	for (line of section.body) {
+	    out = out.concat(line, "<br>\n");
+	}
+	out = out.concat("\n", "<br>", "\n");
+    }
+
+    return out;
+}
 
 function cmd_whoarewe () {
-    return [["Fetching description...", 3], ["200 OK", 2], [about_us, 0]]
+    let json;
+
+    let out = [["Fetching description...", 3]]
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+	    json = JSON.parse(xhttp.responseText);
+	}
+	else if ((this.status != 200) && (this.status != 0)) {
+	    out = out.concat([[`${this.status} ${this.statusText}`, 1]]);
+	}
+    };
+    xhttp.open("GET", "content/about_us.json", false);
+    xhttp.send();
+
+    if (out.length == 1) {
+	return out.concat([["200 OK", 2], [JSONtoHTML(json), 0]]);
+    } else {
+	console.log(out)
+	return out;
+    }
 }
 
 const meow_responses = [
@@ -33,7 +65,7 @@ const meow_responses = [
 ];
 
 function cmd_meow () {
-    return [[meow_responses[Math.floor(Math.random()*meow_responses.length)], 2]]
+    return [[meow_responses[Math.round(Math.random()*(meow_responses.length-1))], 2]]
 }
 
 const MAX_CMD_LEN = 9;
@@ -47,7 +79,6 @@ const CMD_DATA = [
 function do_cmd_parse (input) {
     for (let data of CMD_DATA) {
 	if (data[0] == input.value) {
-	    input.value = "";
 	    return data[2]();
 	}
     }
