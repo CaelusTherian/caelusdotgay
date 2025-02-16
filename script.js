@@ -12,10 +12,11 @@ function cmd_whoami () {
 
 const about_us = `Hello! Thank you for visiting our website!<br>
 <br>
-This is the website of the Caelus System, fdbdd038-c151-4bed-8fdf-fdb02992c758. We're a system of nerdy girlthings (including the robotgirl, writing this!).<br><br>
+This is the website of the <b>Caelus System</b>, <u>fdbdd038-c151-4bed-8fdf-fdb02992c758</u>.<br>
+We're a system of nerdy girlthings (including the robotgirl, writing this!).<br><br>
 We consider ourselves generally ageless and therian, although some of us may feel a stronger attachment to our biological age and/or humanity than the rest. We have infinitely many headmates. This website includes resources on us, and various projects and toys we've collected. We hope you enjoy your stay!<br><br>
 
-For private communication, our GPG key is 0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD, which can be found on the Ubuntu OpenPGP keyserver.`;
+For private communication, our GPG key is <u>0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD</u>, which can be found on the <a href="keyserver.ubuntu.com">Ubuntu OpenPGP keyserver</a>.`;
 
 function cmd_whoarewe () {
     return [["Fetching description...", 3], ["200 OK", 2], [about_us, 0]]
@@ -35,19 +36,18 @@ function cmd_meow () {
     return [[meow_responses[Math.floor(Math.random()*meow_responses.length)], 2]]
 }
 
-const MAX_CMD_LEN = 8;
+const MAX_CMD_LEN = 9;
 const CMD_DATA = [
-    ["help",     "Prints this help message and exits.", cmd_help],
-    ["whoami",   "Deprecated; use `whoarewe' instead.", cmd_whoami],
-    ["whoarewe", "Prints information about us.",        cmd_whoarewe],
-    ["meow",     "Meow!",                               cmd_meow]
+    ["help",      "Prints this help message and exits.",     cmd_help],
+    ["meow",      "Meow!",                                   cmd_meow],
+    ["whoami",    "Deprecated; use `whoarewe' instead.",     cmd_whoami],
+    ["whoarewe",  "Prints information about us.",            cmd_whoarewe]
 ];
 
-function do_cmd_parse (value) {
-    console.log(`:3 ${value}`);
-
+function do_cmd_parse (input) {
     for (let data of CMD_DATA) {
-	if (data[0] == value) {
+	if (data[0] == input.value) {
+	    input.value = "";
 	    return data[2]();
 	}
     }
@@ -75,8 +75,7 @@ function enter_handler () {
     input.addEventListener("keyup", function(event) {
 	if (event.key === "Enter") {
 	    event.preventDefault();
-	    let res = do_cmd_parse(input.value);
-
+	    let res = do_cmd_parse(input);
 	    term.innerHTML = "";
 
 	    let i = 0;
