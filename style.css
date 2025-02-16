@@ -6,6 +6,8 @@
     --bg-dark: #2a1a3a;
     --terminal-bg: #1a102a;
     --error-red: #ff5555;
+    --success-green: #55ff55;
+    --progress-yellow: #ffff55;
 }
 
 body {
