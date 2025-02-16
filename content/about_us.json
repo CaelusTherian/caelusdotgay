@@ -20,7 +20,7 @@
 	    "type": "fftext",
 	    "header": "Contact",
 	    "body": [
-		"For private communication, our GPG key is <u>0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD</u>, which can be found on the <a href=\"keyserver.ubuntu.com\">Ubuntu OpenPGP keyserver</a>."
+		"For private communication, our GPG key is <u>0x522422885A2A8C3653FE8DF96DF08DC39EC5EDCD</u>, which can be found on the <a href=\"https://keyserver.ubuntu.com\">Ubuntu OpenPGP keyserver</a>."
 	    ]
 	}
     ]
