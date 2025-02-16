@@ -1,0 +1,99 @@
+/* Thanks to Rida Hamadani for the bulk of this CSS file :3 */
+
+:root {
+    --terminal-purple: #e6e6fa;
+    --lavender-accent: #b19cd9;
+    --bg-dark: #2a1a3a;
+    --terminal-bg: #1a102a;
+    --error-red: #ff5555;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--terminal-purple);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "ΘΔ";
+    --font-family: monospace;
+    position: fixed;
+    opacity: 0.1;
+    font-size: 300px;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--lavender-accent);
+    animation: iconCycle 30s infinite;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--lavender-accent) }
+}
+
+.lambda-prompt {
+    border-left: 3px solid var(--lavender-accent);
+    padding-left: 1rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 
+	typing 3.5s steps(40, end),
+	blink-caret .75s step-end infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.lambda-symbol {
+    color: var(--lavender-accent);
+    font-size: 1.5em;
+    font-family: monospace;
+}
+
+.lorem {
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+    border-left: 2px solid var(--lavender-accent);
+    opacity: 0.9;
+}
+
+.terminal {
+    border: none;
+    background-color: var(--terminal-bg);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#prompt-box {
+    font-size: 1.25em;
+    caret-color: transparent;
+    color: white;
+}
+
+#terminal-contents {
+    color: var(--terminal-purple);
+}
