@@ -1,0 +1,79 @@
+{
+    "sections": [
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Set theory",
+	    "id": "sets",
+	    "body": [
+		"We're interested in set theory, specifically in ordinals (see <u>lcas</u> for more).",
+		"We primarily like notations for recursive ordinals (such as ordinal collapsing functions), and how nonrecursive, countable ordinals interact with Gödel's constructible hierarchy.",
+		"The latter ties in to large cardinals via the study of fine structure (e.g. mice) and, separately, the notion of a \"recursive analogue\" of a large cardinal axiom."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Large cardinals",
+	    "id": "lcas",
+	    "body": [
+		"We're interested in the interaction between large cardinals (or \"strong axioms of infinity\"; see <u>sets</u>) with independence.",
+		"This includes forcing, especially iterated forcing and how to obtain results such as lifting elementary embeddings or indestructibility.",
+		"Furthermore, we're learning inner model theory, which elegantly attempts to show the consistency of GCH, ◊, □, etc. with large cardinals."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Information theory",
+	    "id": "inf",
+	    "body": [
+		"We're interested in information theory, which talks about measuring how \"random\" or \"redundant\" data is.",
+		"This includes compression, which reduces redundancy, and typically also therefore size in data.",
+		"It also includes cryptography, where one formally analyzes how secure a cipher, hash function, etc. is."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Other math",
+	    "id": "rec",
+	    "body": [
+		"Other than <u>sets</u>, <u>lcas</u> and <u>inf</u>, we like ordinary recursion theory, and descriptive set theory.",
+		"There's a strong analogy between definability of subsets of Polish space, and computability of sets of natural numbers.",
+		"Additionally, at the higher levels of complexity, descriptive set theory and determinacy have striking parallels with <u>lcas</u>."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Programming",
+	    "id": "cs",
+	    "body": [
+		"When we want to \"get our hands dirty\", we like coding in C and Rust.",
+		"We're hoping to make a simple C compiler someday. For now, we're pretty content with <u>gcc</u>.",
+		"In Rust, we like making projects utilizing concurrency, networking or of \"algebraic\" nature. In C, we like low-level projects, such as operating systems."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "Cats",
+	    "id": "cats",
+	    "body": [
+		"They're cute and silly. A lot of us act like them.",
+		"IRL, we have a 4-year old Siberian forest cat."
+	    ]
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": true,
+	    "header": "We Know The Devil",
+	    "id": "wktd",
+	    "body": [
+		"It's a great visual novel. We generally like LGBTQ+ allegories, but this game particularly resonated with us. It helped us come to terms with our queer identity.",
+		"<a href=\"https://pillowfight.itch.io/we-know-the-devil\">Get it!</a>"
+	    ]
+	}
+    ]
+}

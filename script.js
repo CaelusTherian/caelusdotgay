@@ -20,7 +20,6 @@ function JSONtoHTML (json) {
     let out = "";
 
     for (section of json.sections) {
-	console.log(section);
 	if (section.header != "") {
 	    out = section.bold_header ? out.concat(`<b><u>`, section.header, "</u></b><br>\n") : out.concat(`<u>`, section.header, "</u><br>\n");
 	}
@@ -48,8 +47,33 @@ function JSONtoHTML (json) {
 // 0 = bool, 1 = string
 const WHOAREWE_FLAGS = [
     ["help",      "Prints this help message and exits.", 0],
-    ["interests", "Prints information about our interests.", 0]
+    ["interests", "Prints information about our interests.", 0],
+    ["interest",  "More detail about a specific interest (use --interest=[short id]).", 1]
 ];
+
+// Not async! Horrifying, I know!
+function sync_fetch (url) {
+    let out = ["", 0];
+
+    let json;
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+	if (this.readyState == 4 && this.status == 200) {
+	    json = JSON.parse(xhttp.responseText);
+	}
+	else if ((this.status != 200) && (this.status != 0)) {
+	    out = [`${this.status} ${this.statusText}`, 1];
+	}
+    };
+    xhttp.open("GET", `content/${url}`, false);
+    xhttp.send();
+
+    if (out[1] == 0) {
+	out = [json, 0];
+    }
+    return out;
+}
 
 function parse_flags (flags, DATA) {
     let fl_dict = {};
@@ -62,9 +86,17 @@ function parse_flags (flags, DATA) {
 	let success = false;
 
 	for (opt of DATA) {
-	    if (opt[0] == flag.slice(2)) {
-		fl_dict[opt[0]] = true;
-		success = true;
+	    if (opt[2] == 0) {
+		if (opt[0] == flag.slice(2)) {
+		    fl_dict[opt[0]] = true;
+		    success = true;
+		}
+	    }
+	    if (opt[2] == 1) {
+		if (opt[0] == flag.slice(2).split("=")[0]) {
+		    fl_dict[opt[0]] = flag.slice(2).split("=").slice(1).join("=");
+		    success = true;
+		}
 	    }
 	}
 
@@ -81,6 +113,9 @@ function flag_dict_to_url (fl_dict) {
     if (fl_dict.interests) {
 	url = "interests.json"
     }
+    if ("interest" in fl_dict) {
+	url = "interests_detail.json"
+    }
     return url;
 }
 
@@ -96,24 +131,28 @@ function cmd_whoarewe (opts) {
     }
 
     let json;
-    let out = [["Fetching description...", 3]]
+    let out = [["Fetching description...", 3]];
+    let res = sync_fetch(`${flag_dict_to_url(fl_data[0])}`);
+    let success = false;
 
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-	if (this.readyState == 4 && this.status == 200) {
-	    json = JSON.parse(xhttp.responseText);
+    if ("interest" in fl_data[0]) {
+	for (section of res[0].sections) {
+	    if (section.id == fl_data[0].interest) {
+		res[0] = {"sections": [section]};
+		success = true;
+		break;
+	    }
 	}
-	else if ((this.status != 200) && (this.status != 0)) {
-	    out = out.concat([[`${this.status} ${this.statusText}`, 1]]);
-	}
-    };
-    xhttp.open("GET", `content/${flag_dict_to_url(fl_data[0])}`, false);
-    xhttp.send();
+    }
 
-    if (out.length == 1) {
-	return out.concat([["200 OK", 2], [JSONtoHTML(json), 0]]);
+    if (!success) {
+	return [[`Unknown section name: ${fl_data[0].interest}.`, 1]];
+    }
+
+    if (res[1] == 0) {
+	return out.concat([["200 OK", 2], [JSONtoHTML(res[0]), 0]]);
     } else {
-	return out;
+	return out.concat([res]);
     }
 }
 
