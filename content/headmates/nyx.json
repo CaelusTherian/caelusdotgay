@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Nyx",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "nyx.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "aromantic",
+		"relations": [
+		    "sister of Aether",
+		    "sister of Demeter"
+		]
+	    }
+	}
+    ]
+}

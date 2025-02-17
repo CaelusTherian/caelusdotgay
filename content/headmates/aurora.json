@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Aurora",
+		"pronouns": [
+		    "it/its",
+		    "she/her"
+		],
+		"avatar": "aurora.png",
+		"species": "kitty",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

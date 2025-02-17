@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Clover",
+		"pronouns": [
+		    "xe/xem"
+		],
+		"avatar": "clover.png",
+		"species": "human",
+		"sexuality": "pansexual",
+		"romanticism": "panromantic",
+		"relations": [
+		    "partner of Valky"
+		]
+	    }
+	}
+    ]
+}

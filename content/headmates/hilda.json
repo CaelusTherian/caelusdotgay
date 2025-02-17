@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Hilda",
+		"pronouns": [
+		    "she/her",
+		    "they/them"
+		],
+		"avatar": "hilda.png",
+		"species": "human",
+		"sexuality": "pansexual",
+		"romanticism": "panromantic",
+		"relations": [
+		    "partner of Rosa"
+		]
+	    }
+	}
+    ]
+}

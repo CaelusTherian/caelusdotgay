@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Chloë",
+		"pronouns": [
+		    "miy/mim/mir/mirs/mosa"
+		],
+		"avatar": "chloe.png",
+		"species": "human",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		    "sibling of Aspirin"
+		]
+	    }
+	}
+    ]
+}

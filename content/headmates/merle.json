@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Merle",
+		"pronouns": [
+		    "he/him",
+		    "they/them"
+		],
+		"avatar": "merle.png",
+		"species": "kitty",
+		"sexuality": "pansexual",
+		"romanticism": "omniromantic",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Rosa",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "rosa.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		    "partner of Hilda"
+		]
+	    }
+	}
+    ]
+}

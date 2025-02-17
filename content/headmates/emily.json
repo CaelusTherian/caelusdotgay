@@ -1,0 +1,21 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Emily",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "emily.png",
+		"species": "fox",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

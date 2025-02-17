@@ -1,0 +1,25 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Nora",
+		"pronouns": [
+		    "she/her",
+		    "it/its"
+		],
+		"avatar": "nora.png",
+		"species": "robot",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		    "partner of Aronia",
+		    "partner of Sylvie",
+		    "partner of Astrid"
+		]
+	    }
+	}
+    ]
+}

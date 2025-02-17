@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Harmonia",
+		"pronouns": [
+		    "she/her",
+		    "they/them"
+		],
+		"avatar": "harmonia.png",
+		"species": "human",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

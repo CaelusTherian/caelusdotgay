@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Aether",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "aether.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		    "sister of Nyx",
+		    "sister of Hemera"
+		]
+	    }
+	}
+    ]
+}

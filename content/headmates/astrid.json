@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Astrid",
+		"pronouns": [
+		    "it/its (3pp pref)"
+		],
+		"avatar": "astrid.png",
+		"species": "puppy",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		    "partner of Nora"
+		]
+	    }
+	}
+    ]
+}

@@ -95,6 +95,7 @@ body::before {
     font-size: 1.25em;
     caret-color: transparent;
     color: white;
+    width: 360px;
 }
 
 #terminal-contents {
@@ -103,4 +104,8 @@ body::before {
 
 a {
     color: var(--anchor-color);
+}
+
+img {
+    float: right;
 }

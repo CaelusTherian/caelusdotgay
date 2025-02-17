@@ -1,0 +1,21 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Megan",
+		"pronouns": [
+		    "it/its"
+		],
+		"avatar": "megan.png",
+		"species": "bunny",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

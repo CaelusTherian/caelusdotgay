@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Soul",
+		"pronouns": [
+		    "it/its",
+		    "they/them"
+		],
+		"avatar": "soul.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "aromantic",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

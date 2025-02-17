@@ -1,0 +1,24 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Xenia",
+		"pronouns": [
+		    "she/her",
+		    "they/them",
+		    "fae/faer"
+		],
+		"avatar": "xenia.png",
+		"species": "kitty",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		    "partner of Juniper"
+		]
+	    }
+	}
+    ]
+}

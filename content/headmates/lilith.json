@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Lilith",
+		"pronouns": [
+		    "it/its",
+		    "she/her"
+		],
+		"avatar": "lilith.png",
+		"species": "puppy",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

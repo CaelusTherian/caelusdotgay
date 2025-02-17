@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Aronia",
+		"pronouns": [
+		    "she/her",
+		    "it/its"
+		],
+		"avatar": "aronia.png",
+		"species": "robot",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		    "partner of Nora"
+		]
+	    }
+	}
+    ]
+}

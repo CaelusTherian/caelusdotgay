@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Eve",
+		"pronouns": [
+		    "none"
+		],
+		"avatar": "eve.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "aromantic",
+		"relations": [
+		    "system pseudoprotector"
+		]
+	    }
+	}
+    ]
+}

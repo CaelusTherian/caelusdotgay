@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Demeter",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "demeter.png",
+		"species": "human",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		    "sister of Nyx",
+		    "sister of Aether"
+		]
+	    }
+	}
+    ]
+}

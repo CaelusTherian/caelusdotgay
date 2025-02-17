@@ -21,22 +21,28 @@ function JSONtoHTML (json) {
 
     for (section of json.sections) {
 	if (section.header != "") {
-	    out = section.bold_header ? out.concat(`<b><u>`, section.header, "</u></b><br>\n") : out.concat(`<u>`, section.header, "</u><br>\n");
+	    out = out.concat(section.bold_header ? `<b><u>${section.header}</u></b>` : `<u>${section.header}</u>`, "<br>\n");
 	}
 	switch (section.type) {
 	case "fftext":
-	    for (line of section.body) {
-		out = out.concat(line, "<br>\n");
-	    }
-	    out = out.concat("\n", "<br>", "\n");
+	    out = out.concat(section.body.join("<br>\n"), "\n<br><br>\n");
 	    break;
 
 	case "list":
-	    out = out.concat("<ul>\n");
-	    for (line of section.body) {
-		out = out.concat("<li>", line, "</li>\n");
+	    out = out.concat("<ul>\n<li>", section.body.join("</li>\n<li>"), "</li>\n</ul>\n");
+	    break;
+
+	case "factfile":
+	    out = out.concat(`<img src="content/headmates/${section.body.avatar}" width="200" height="200">`,
+		             `<b>Name</b>: ${section.body.name}<br>\n`,
+			     "<b>Pronouns</b>: <ul>\n<li>", section.body.pronouns.join("</li>\n<li>"), "</li>\n</ul>\n",
+			     `<b>Species</b>: ${section.body.species}<br>\n`,
+			     `<b>Sexuality</b>: ${section.body.sexuality}<br>\n`,
+			     `<b>Romanticism</b>: ${section.body.romanticism}<br>\n`);
+
+	    if (section.body.relations.length != 0) {
+		out = out.concat("<b><u>Relationships with other headmates</u></b><br>\n<ul>\n<li>", section.body.relations.join("</li>\n<li>"), "</li>\n</ul>\n");
 	    }
-	    out = out.concat("</ul>\n", "<br>", "\n");
 	    break;
 	}
     }
@@ -131,11 +137,11 @@ function cmd_whoarewe (opts) {
     }
 
     let json;
-    let out = [["Fetching description...", 3]];
     let res = sync_fetch(`${flag_dict_to_url(fl_data[0])}`);
-    let success = false;
 
     if ("interest" in fl_data[0]) {
+	let success = false;
+
 	for (section of res[0].sections) {
 	    if (section.id == fl_data[0].interest) {
 		res[0] = {"sections": [section]};
@@ -143,16 +149,16 @@ function cmd_whoarewe (opts) {
 		break;
 	    }
 	}
-    }
 
-    if (!success) {
-	return [[`Unknown section name: ${fl_data[0].interest}.`, 1]];
+	if (!success) {
+	    return [[`Unknown section name: ${fl_data[0].interest}.`, 1]];
+	}
     }
 
     if (res[1] == 0) {
-	return out.concat([["200 OK", 2], [JSONtoHTML(res[0]), 0]]);
+	return [["Fetching description...", 3], ["200 OK", 2], [JSONtoHTML(res[0]), 0]];
     } else {
-	return out.concat([res]);
+	return [["Fetching description...", 3], res];
     }
 }
 
@@ -175,7 +181,45 @@ function cmd_meow () {
     return [[meow_responses[Math.round(Math.random()*(meow_responses.length-1))], 2]]
 }
 
+const HEADMATES_FLAGS = [
+    ["help",  "Prints this help message and exits.", 0],
+    ["name",  "Prints information about a specific headmate; use --name=[name].", 1]
+];
+
+function cmd_headmates (opts) {
+    let fl_data = parse_flags(opts, HEADMATES_FLAGS);
+
+    if (fl_data[1] == 1) {
+	return [[`Unrecognized option: ${fl_data[0]}. Type \`headmates --help' for a list of valid options.`, 1]];
+    }
+
+    if (fl_data[0].help) {
+	return general_help(HEADMATES_FLAGS);
+    }
+
+    let res = ["", 0];
+
+    if ("name" in fl_data[0]) {
+	let name = fl_data[0].name.toLowerCase();
+	if (name.match(/^[ 0-9a-z]+$/) == null) {
+	    return [["That's not a valid headmate name!", 1]];
+	}
+	let res = sync_fetch(`headmates/${name}.json`);
+
+	if (res[1] == 1) {
+	    return [["Fetching headmate page...", 3], res];
+	}
+
+	return [["Fetching headmate page...", 3], ["200 OK", 2], [JSONtoHTML(res[0]), 0]];
+    } else {
+	return [["Please specify a selector to search headmates by.", 1]];
+    }
+
+    return [[":3", 0]];
+}
+
 const CMD_DATA = [
+    ["headmates", "Prints information about our headmates.",                cmd_headmates],
     ["help",      "Prints this help message and exits.",                    cmd_help],
     ["meow",      "Meow!",                                                  cmd_meow],
     ["whoami",    "Deprecated; use `whoarewe' instead.",                    cmd_whoami],

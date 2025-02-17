@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Maddy",
+		"pronouns": [
+		    "they/them",
+		    "fae/faer"
+		],
+		"avatar": "maddy.png",
+		"species": "human",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}

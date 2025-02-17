@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Aspirin",
+		"pronouns": [
+		    "si/sil/sil/silk/silkself"
+		],
+		"avatar": "aspirin.png",
+		"species": "human",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		    "sibling of Chloë"
+		]
+	    }
+	}
+    ]
+}

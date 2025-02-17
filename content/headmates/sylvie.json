@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Sylvie",
+		"pronouns": [
+		    "she/her",
+		    "they/them"
+		],
+		"avatar": "sylvie.png",
+		"species": "puppykitty (e.g. Eevee)",
+		"sexuality": "pansexual",
+		"romanticism": "omniromantic",
+		"relations": [
+		    "partner of Nora"
+		]
+	    }
+	}
+    ]
+}

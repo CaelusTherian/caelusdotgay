@@ -1,0 +1,22 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Juniper",
+		"pronouns": [
+		    "ve/vel/vel/velve/velvetself"
+		],
+		"avatar": "juniper.png",
+		"species": "kitty",
+		"sexuality": "unknown",
+		"romanticism": "lesbian",
+		"relations": [
+		    "partner of Xenia"
+		]
+	    }
+	}
+    ]
+}
