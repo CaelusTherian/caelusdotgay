@@ -1,0 +1,27 @@
+{
+    "sections": [
+	{
+	    "type": "list",
+	    "bold_header": false,
+	    "header": "Nerdy",
+	    "body": [
+		"<b>Set theory</b>: ordinal analysis, admissible sets and α-recursion",
+		"<b>Large cardinals</b>: inner model theory and iterated forcing",
+		"<b>Information theory</b>: cryptography, randomness and compression",
+		"<b>Other math</b>: descriptive set theory, non-generalized recursion theory and type theory",
+		"<b>Low-level programming</b>: operating systems, compilers and cybersecurity; C and Rust"
+	    ]
+	},
+	{
+	    "type": "list",
+	    "bold_header": false,
+	    "header": "Others",
+	    "body": [
+		"<b>Music</b>: synthwave/chillwave (HOME, Chris Doerksen), psychedelic (Tame Impala), electro swing, jungle and phonk",
+		"<b>Cats!</b>",
+		"<b>Video games</b>: Celeste, minesweeper, Buckshot Roulette",
+		"<b><a href=\"https://pillowfight.itch.io/we-know-the-devil\">We Know The Devil</a></b>: a visual novel we highly commend"
+	    ]
+	}
+    ]
+}

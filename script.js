@@ -1,9 +1,15 @@
-function cmd_help () {
-    out = [];
-    for (let data of CMD_DATA) {
-	out.push(["".concat(data[0], "&nbsp;".repeat(MAX_CMD_LEN - data[0].length + 1), data[1]), 0]);
+function general_help (DATA) {
+    let max_len = Math.max.apply(null, DATA.map((x) => x[0].length));
+
+    let out = [];
+    for (let data of DATA) {
+	out.push(["".concat(data[0], "&nbsp;".repeat(max_len - data[0].length + 2), data[1]), 0]);
     }
     return out;
+}
+
+function cmd_help () {
+    return general_help(CMD_DATA);
 }
 
 function cmd_whoami () {
@@ -14,24 +20,82 @@ function JSONtoHTML (json) {
     let out = "";
 
     for (section of json.sections) {
-	if (section.type != "fftext") {
-	    continue;
-	}
+	console.log(section);
 	if (section.header != "") {
-	    out = out.concat("<b><u>", section.header, "</u></b><br>\n")
+	    out = section.bold_header ? out.concat(`<b><u>`, section.header, "</u></b><br>\n") : out.concat(`<u>`, section.header, "</u><br>\n");
 	}
-	for (line of section.body) {
-	    out = out.concat(line, "<br>\n");
+	switch (section.type) {
+	case "fftext":
+	    for (line of section.body) {
+		out = out.concat(line, "<br>\n");
+	    }
+	    out = out.concat("\n", "<br>", "\n");
+	    break;
+
+	case "list":
+	    out = out.concat("<ul>\n");
+	    for (line of section.body) {
+		out = out.concat("<li>", line, "</li>\n");
+	    }
+	    out = out.concat("</ul>\n", "<br>", "\n");
+	    break;
 	}
-	out = out.concat("\n", "<br>", "\n");
     }
 
     return out;
 }
 
-function cmd_whoarewe () {
-    let json;
+// 0 = bool, 1 = string
+const WHOAREWE_FLAGS = [
+    ["help",      "Prints this help message and exits.", 0],
+    ["interests", "Prints information about our interests.", 0]
+];
 
+function parse_flags (flags, DATA) {
+    let fl_dict = {};
+
+    for (flag of flags) {
+	if (flag.slice(0,2) != "--") {
+	    return [flag, 1]
+	}
+
+	let success = false;
+
+	for (opt of DATA) {
+	    if (opt[0] == flag.slice(2)) {
+		fl_dict[opt[0]] = true;
+		success = true;
+	    }
+	}
+
+	if (!success) {
+	    return [flag, 1];
+	}
+    }
+
+    return [fl_dict, 0];
+}
+
+function flag_dict_to_url (fl_dict) {
+    let url = "about_us.json";
+    if (fl_dict.interests) {
+	url = "interests.json"
+    }
+    return url;
+}
+
+function cmd_whoarewe (opts) {
+    let fl_data = parse_flags(opts, WHOAREWE_FLAGS);
+
+    if (fl_data[1] == 1) {
+	return [[`Unrecognized option: ${fl_data[0]}. Type \`whoarewe --help' for a list of valid options.`, 1]];
+    }
+
+    if (fl_data[0].help) {
+	return general_help(WHOAREWE_FLAGS);
+    }
+
+    let json;
     let out = [["Fetching description...", 3]]
 
     let xhttp = new XMLHttpRequest();
@@ -43,13 +107,12 @@ function cmd_whoarewe () {
 	    out = out.concat([[`${this.status} ${this.statusText}`, 1]]);
 	}
     };
-    xhttp.open("GET", "content/about_us.json", false);
+    xhttp.open("GET", `content/${flag_dict_to_url(fl_data[0])}`, false);
     xhttp.send();
 
     if (out.length == 1) {
 	return out.concat([["200 OK", 2], [JSONtoHTML(json), 0]]);
     } else {
-	console.log(out)
 	return out;
     }
 }
@@ -61,25 +124,29 @@ const meow_responses = [
     "mnyaa,",
     "arf!",
     "rrrufff :3",
-    "boing"
+    "boing",
+    "miau :3c",
+    "purrr~",
+    "awawawaa",
+    "beep!",
+    "boop!"
 ];
 
 function cmd_meow () {
     return [[meow_responses[Math.round(Math.random()*(meow_responses.length-1))], 2]]
 }
 
-const MAX_CMD_LEN = 9;
 const CMD_DATA = [
-    ["help",      "Prints this help message and exits.",     cmd_help],
-    ["meow",      "Meow!",                                   cmd_meow],
-    ["whoami",    "Deprecated; use `whoarewe' instead.",     cmd_whoami],
-    ["whoarewe",  "Prints information about us.",            cmd_whoarewe]
+    ["help",      "Prints this help message and exits.",                    cmd_help],
+    ["meow",      "Meow!",                                                  cmd_meow],
+    ["whoami",    "Deprecated; use `whoarewe' instead.",                    cmd_whoami],
+    ["whoarewe",  "Prints information about us; --help for extra options.", cmd_whoarewe]
 ];
 
 function do_cmd_parse (input) {
     for (let data of CMD_DATA) {
-	if (data[0] == input.value) {
-	    return data[2]();
+	if (data[0] == input.value.split(" ")[0]) {
+	    return data[2](input.value.split(" ").slice(1));
 	}
     }
 
