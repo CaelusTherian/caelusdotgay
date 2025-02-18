@@ -16,6 +16,14 @@
 		"relations": [
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"A little who gets dysphoric or nonverbal too easily. Nyx tends to take care of her."
+	    ]
 	}
     ]
 }

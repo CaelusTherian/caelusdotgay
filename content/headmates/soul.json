@@ -17,6 +17,14 @@
 		"relations": [
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Songtive formed during some kind of split, but it won't bite!"
+	    ]
 	}
     ]
 }

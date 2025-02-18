@@ -15,9 +15,17 @@
 		"romanticism": "lesbian",
 		"relations": [
 		    "sister of Nyx",
-		    "sister of Hemera"
+		    "sister of Demeter"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"An introject (fictive) of Jupiter from We Know The Devil. As such, a tomboy."
+	    ]
 	}
     ]
 }

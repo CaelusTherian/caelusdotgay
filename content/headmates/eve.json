@@ -14,9 +14,16 @@
 		"sexuality": "asexual",
 		"romanticism": "aromantic",
 		"relations": [
-		    "system pseudoprotector"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"System pseudoprotector. Eve apologizes for if Eve seems cold at times."
+	    ]
 	}
     ]
 }

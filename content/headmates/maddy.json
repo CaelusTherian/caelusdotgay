@@ -5,7 +5,7 @@
 	    "bold_header": true,
 	    "header": "",
 	    "body": {
-		"name": "Maddy",
+		"name": "Maddy (Madeline)",
 		"pronouns": [
 		    "they/them",
 		    "fae/faer"
@@ -17,6 +17,14 @@
 		"relations": [
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Girlflux, mostly agender."
+	    ]
 	}
     ]
 }

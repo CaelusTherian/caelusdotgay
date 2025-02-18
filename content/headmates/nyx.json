@@ -18,6 +18,14 @@
 		    "sister of Demeter"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"An introject (fictive) of Neptune from We Know The Devil. As such, perhaps harsh at times, but caring."
+	    ]
 	}
     ]
 }

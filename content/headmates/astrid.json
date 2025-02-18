@@ -17,6 +17,14 @@
 		    "partner of Nora"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Silly puppygirlthing who yearns for too much intimacy for its own good."
+	    ]
 	}
     ]
 }

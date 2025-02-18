@@ -18,6 +18,14 @@
 		    "sister of Aether"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"An introject (fictive) of Venus from We Know The Devil. As such, pretty shy."
+	    ]
 	}
     ]
 }

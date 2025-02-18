@@ -17,6 +17,14 @@
 		    "partner of Valky"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Pangender too! Xe seems not to care too much about identity (in particular, feel free to use pronouns other than xe/xem for xem; that's just xyr preference)."
+	    ]
 	}
     ]
 }

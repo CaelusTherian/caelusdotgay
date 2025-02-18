@@ -1,3 +1,5 @@
+let cache = {};
+
 function general_help (DATA) {
     let max_len = Math.max.apply(null, DATA.map((x) => x[0].length));
 
@@ -38,10 +40,10 @@ function JSONtoHTML (json) {
 			     "<b>Pronouns</b>: <ul>\n<li>", section.body.pronouns.join("</li>\n<li>"), "</li>\n</ul>\n",
 			     `<b>Species</b>: ${section.body.species}<br>\n`,
 			     `<b>Sexuality</b>: ${section.body.sexuality}<br>\n`,
-			     `<b>Romanticism</b>: ${section.body.romanticism}<br>\n`);
+			     `<b>Romanticism</b>: ${section.body.romanticism}<br>\n<br>`);
 
 	    if (section.body.relations.length != 0) {
-		out = out.concat("<b><u>Relationships with other headmates</u></b><br>\n<ul>\n<li>", section.body.relations.join("</li>\n<li>"), "</li>\n</ul>\n");
+		out = out.concat("<u>Relationships with other headmates</u><br>\n<ul>\n<li>", section.body.relations.join("</li>\n<li>"), "</li>\n</ul>\n");
 	    }
 	    break;
 	}

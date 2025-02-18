@@ -18,6 +18,14 @@
 		    "partner of Nora"
 		]
 	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"System host; probably fronts the most out of all headmates. Similar to Astrid and Xenia in many regards."
+	    ]
 	}
     ]
 }
