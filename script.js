@@ -54,7 +54,7 @@ function JSONtoHTML (json) {
 const WHOAREWE_FLAGS = [
     ["help",      "Prints this help message and exits.", 0],
     ["interests", "Prints information about our interests.", 0],
-    ["interest",  "More detail about a specific interest (use --interest=[short id]).", 1]
+    ["interest",  "More detail about a specific interest (use interest=[short id]).", 1]
 ];
 
 // Not async! Horrifying, I know!
@@ -85,22 +85,18 @@ function parse_flags (flags, DATA) {
     let fl_dict = {};
 
     for (flag of flags) {
-	if (flag.slice(0,2) != "--") {
-	    return [flag, 1]
-	}
-
 	let success = false;
 
 	for (opt of DATA) {
 	    if (opt[2] == 0) {
-		if (opt[0] == flag.slice(2)) {
+		if (opt[0] == flag) {
 		    fl_dict[opt[0]] = true;
 		    success = true;
 		}
 	    }
 	    if (opt[2] == 1) {
-		if (opt[0] == flag.slice(2).split("=")[0]) {
-		    fl_dict[opt[0]] = flag.slice(2).split("=").slice(1).join("=");
+		if (opt[0] == flag.split("=")[0]) {
+		    fl_dict[opt[0]] = flag.split("=").slice(1).join("=");
 		    success = true;
 		}
 	    }
