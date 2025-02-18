@@ -61,6 +61,11 @@ const WHOAREWE_FLAGS = [
 
 // Not async! Horrifying, I know!
 function sync_fetch (url) {
+    if (url in cache) {
+	console.log("Cache hit!");
+	return [cache[url], 0];
+    }
+
     let out = ["", 0];
 
     let json;
@@ -79,6 +84,7 @@ function sync_fetch (url) {
 
     if (out[1] == 0) {
 	out = [json, 0];
+	cache[url] = json;
     }
     return out;
 }
@@ -153,11 +159,15 @@ function cmd_whoarewe (opts) {
 	}
     }
 
+    let out = [["Fetching description...", 3]]
+
     if (res[1] == 0) {
-	return [["Fetching description...", 3], ["200 OK", 2], [JSONtoHTML(res[0]), 0]];
+	out.push(["200 OK", 2], [JSONtoHTML(res[0]), 0]);
     } else {
-	return [["Fetching description...", 3], res];
+	out.push(res);
     }
+
+    return out;
 }
 
 const meow_responses = [
@@ -180,6 +190,7 @@ function cmd_meow () {
 }
 
 const HEADMATES_FLAGS = [
+    ["all",   "Lists all headmates.", 0],
     ["help",  "Prints this help message and exits.", 0],
     ["name",  "Prints information about a specific headmate; use --name=[name].", 1]
 ];
@@ -202,18 +213,35 @@ function cmd_headmates (opts) {
 	if (name.match(/^[ 0-9a-z]+$/) == null) {
 	    return [["That's not a valid headmate name!", 1]];
 	}
-	let res = sync_fetch(`headmates/${name}.json`);
+
+	res = sync_fetch(`headmates/${name}.json`);
+
+	let out = [["Fetching headmate page...", 3]];
 
 	if (res[1] == 1) {
-	    return [["Fetching headmate page...", 3], res];
+	    out.push(res);
+	} else {
+	    out.push(["200 OK", 2], [JSONtoHTML(res[0]), 0]);
 	}
 
-	return [["Fetching headmate page...", 3], ["200 OK", 2], [JSONtoHTML(res[0]), 0]];
+	return out;
+    }
+
+    let list = sync_fetch("headmate_list.json");
+    let out = [["Fetching headmates list...", 3]];
+
+    if (list[1] == 1) {
+	out.push(list);
+	return out;
+    }
+
+    if ("all" in fl_data[0]) {
+	let html = `<b><u>Headmates</u></b>\n<ul>\n<li>${list[0].join("</li>\n<li>")}</li>\n</ul>\n`;
+	out.push(["200 OK", 2], [html, 0]);
+	return out;
     } else {
 	return [["Please specify a selector to search headmates by.", 1]];
     }
-
-    return [[":3", 0]];
 }
 
 const CMD_DATA = [
