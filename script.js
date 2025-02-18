@@ -103,7 +103,7 @@ function parse_flags (flags, DATA) {
 		}
 	    }
 	    if (opt[2] == 1) {
-		if (opt[0] == flag.split("=")[0]) {
+		if ((opt[0] == flag.split("=")[0]) && (opt[0] != flag)) {
 		    fl_dict[opt[0]] = flag.split("=").slice(1).join("=");
 		    success = true;
 		}
@@ -190,41 +190,49 @@ function cmd_meow () {
 }
 
 const HEADMATES_FLAGS = [
-    ["all",   "Lists all headmates.", 0],
-    ["help",  "Prints this help message and exits.", 0],
-    ["name",  "Prints information about a specific headmate; use --name=[name].", 1]
+    ["all",         "Lists all headmates.", 0],
+    ["help",        "Prints this help message and exits.", 0],
+    ["name",        "Prints information about a specific headmate; use name=[name].", 1],
+    ["pronouns",    "Lists headmates using specific pronouns.", 1],
+    ["romanticism", "Lists headmates of a specific romanticism.", 1],
+    ["sexuality",   "Lists headmates of a specific sexuality.", 1],
+    ["species",     "Lists headmates of a specific species.", 1]
 ];
+
+function get_headmate (name) {
+    let res = sync_fetch(`headmates/${name}.json`);
+    let out = [["Fetching headmate page...", 3]];
+
+    if (res[1] == 1) {
+	out.push(res);
+    } else {
+	out.push(["200 OK", 2], [res[0], 0]);
+    }
+
+    return out;
+}
 
 function cmd_headmates (opts) {
     let fl_data = parse_flags(opts, HEADMATES_FLAGS);
 
     if (fl_data[1] == 1) {
-	return [[`Unrecognized option: ${fl_data[0]}. Type \`headmates --help' for a list of valid options.`, 1]];
+	return [[`Unrecognized option: ${fl_data[0]}. Type \`headmates help' for a list of valid options.`, 1]];
     }
 
     if (fl_data[0].help) {
 	return general_help(HEADMATES_FLAGS);
     }
 
-    let res = ["", 0];
-
     if ("name" in fl_data[0]) {
 	let name = fl_data[0].name.toLowerCase();
 	if (name.match(/^[ 0-9a-z]+$/) == null) {
 	    return [["That's not a valid headmate name!", 1]];
 	}
-
-	res = sync_fetch(`headmates/${name}.json`);
-
-	let out = [["Fetching headmate page...", 3]];
-
-	if (res[1] == 1) {
-	    out.push(res);
-	} else {
-	    out.push(["200 OK", 2], [JSONtoHTML(res[0]), 0]);
+	let res = get_headmate(name);
+	if (res[2][1] == 0) {
+	    res[2][0] = JSONtoHTML(res[2][0]);
 	}
-
-	return out;
+	return res;
     }
 
     let list = sync_fetch("headmate_list.json");
@@ -235,13 +243,44 @@ function cmd_headmates (opts) {
 	return out;
     }
 
-    if ("all" in fl_data[0]) {
-	let html = `<b><u>Headmates</u></b>\n<ul>\n<li>${list[0].join("</li>\n<li>")}</li>\n</ul>\n`;
-	out.push(["200 OK", 2], [html, 0]);
-	return out;
-    } else {
-	return [["Please specify a selector to search headmates by.", 1]];
+    let success = false;
+    let skey;
+
+    for (key of ["pronouns", "species", "sexuality", "romanticism"]) {
+	if (key in fl_data[0]) {
+	    success = true;
+	    skey = key;
+	}
     }
+
+    if (!(success || ("all" in fl_data[0]))) {
+	return [["Please specify a valid filter to search headmates by.", 1]];
+    }
+
+    let res_headmates = [];
+
+    if (success) {
+	for (headmate of list[0]) {
+	    let data = get_headmate(headmate.toLowerCase())[2][0];
+
+	    let cond;
+	    if (skey == "pronouns") {
+		cond = data.sections[0].body[skey].includes(fl_data[0][skey])
+	    } else {
+		cond = data.sections[0].body[skey] == fl_data[0][skey]
+	    }
+
+	    if (cond) {
+		res_headmates.push(headmate);
+	    }
+	}
+    } else {
+	res_headmates = list[0];
+    }
+
+    let html = `<b><u>Headmates</u></b>\n<ul>\n<li>${res_headmates.join("</li>\n<li>")}</li>\n</ul>\n`;
+    out.push(["200 OK", 2], [html, 0]);
+    return out;
 }
 
 const CMD_DATA = [
