@@ -125,7 +125,7 @@ function cmd_whoarewe (opts) {
     let fl_data = parse_flags(opts, WHOAREWE_FLAGS);
 
     if (fl_data[1] == 1) {
-	return [[`Unrecognized option: ${fl_data[0]}. Type \`whoarewe --help' for a list of valid options.`, 1]];
+	return [[`Unrecognized option: ${fl_data[0]}. Type \`whoarewe help' for a list of valid options.`, 1]];
     }
 
     if (fl_data[0].help) {
