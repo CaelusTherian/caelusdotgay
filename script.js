@@ -62,7 +62,6 @@ const WHOAREWE_FLAGS = [
 // Not async! Horrifying, I know!
 function sync_fetch (url) {
     if (url in cache) {
-	console.log("Cache hit!");
 	return [cache[url], 0];
     }
 

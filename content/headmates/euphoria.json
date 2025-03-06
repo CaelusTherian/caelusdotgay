@@ -1,0 +1,24 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Euphoria",
+		"pronouns": [
+		    "ey/em/eir/eir/emself",
+		    "fae/faer",
+		    "she/her"
+		],
+		"avatar": "euphoria.png",
+		"species": "unknown",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": [
+		    "partner of Aurora"
+		]
+	    }
+	}
+    ]
+}
