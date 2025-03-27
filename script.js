@@ -253,7 +253,7 @@ function cmd_headmates (opts) {
     }
 
     if (!(success || ("all" in fl_data[0]))) {
-	return [["Please specify a valid filter to search headmates by.", 1]];
+	return [["Please specify a valid filter to search headmates by; type `headmates help' for a list.", 1]];
     }
 
     let res_headmates = [];
@@ -283,11 +283,11 @@ function cmd_headmates (opts) {
 }
 
 const CMD_DATA = [
-    ["headmates", "Prints information about our headmates.",                cmd_headmates],
-    ["help",      "Prints this help message and exits.",                    cmd_help],
-    ["meow",      "Meow!",                                                  cmd_meow],
-    ["whoami",    "Deprecated; use `whoarewe' instead.",                    cmd_whoami],
-    ["whoarewe",  "Prints information about us; --help for extra options.", cmd_whoarewe]
+    ["headmates", "Prints information about our headmates.",              cmd_headmates],
+    ["help",      "Prints this help message and exits.",                  cmd_help],
+    ["meow",      "Meow!",                                                cmd_meow],
+    ["whoami",    "Deprecated; use `whoarewe' instead.",                  cmd_whoami],
+    ["whoarewe",  "Prints information about us; help for extra options.", cmd_whoarewe]
 ];
 
 function do_cmd_parse (input) {

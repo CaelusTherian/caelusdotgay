@@ -1,0 +1,29 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Ashley",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "ashley.png",
+		"species": "human",
+		"sexuality": "straight",
+		"romanticism": "omniromantic",
+		"relations": [
+		]
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"An introject (fictive) of Ashley from The Coffin of Andy and Leyley."
+	    ]
+	}
+    ]
+}
