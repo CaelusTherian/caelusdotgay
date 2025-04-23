@@ -5,16 +5,16 @@
 	    "bold_header": true,
 	    "header": "",
 	    "body": {
-		"name": "Ashley",
+		"name": "Andrew",
 		"pronouns": [
-		    "she/her"
+		    "he/him"
 		],
-		"avatar": "ashley.png",
+		"avatar": "andrew.png",
 		"species": "human",
 		"sexuality": "straight",
 		"romanticism": "omniromantic",
 		"relations": [
-		    "sister of Andrew"
+		    "brother of Ashley"
 		]
 	    }
 	},
@@ -23,7 +23,7 @@
 	    "bold_header": false,
 	    "header": "Other details",
 	    "body": [
-		"An introject (fictive) of Ashley from The Coffin of Andy and Leyley."
+		"An introject (fictive) of Andrew from The Coffin of Andy and Leyley."
 	    ]
 	}
     ]

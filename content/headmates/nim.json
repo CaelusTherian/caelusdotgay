@@ -1,0 +1,23 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Nim",
+		"pronouns": [
+		    "she/her",
+		    "it/its",
+		    "fae/faer"
+		],
+		"avatar": "nim.png",
+		"species": "plushie",
+		"sexuality": "asexual",
+		"romanticism": "lesbian",
+		"relations": [
+		]
+	    }
+	}
+    ]
+}
