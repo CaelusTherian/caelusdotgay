@@ -1,0 +1,30 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Melody",
+		"pronouns": [
+		    "it/its"
+		],
+		"avatar": "melody.png",
+		"species": "bunny",
+		"sexuality": "asexual",
+		"romanticism": "unknown",
+		"relations": [
+		    "partner of Megan"
+		]
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Little."
+	    ]
+	}
+    ]
+}
