@@ -1,0 +1,29 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Hazel",
+		"pronouns": [
+		    "it/its",
+		    "she/her"
+		],
+		"avatar": "hazel.png",
+		"species": "kitty",
+		"sexuality": "lesbian",
+		"romanticism": "lesbian",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"More externally human-seeming than other non-human members. I'm probably kinda tsundere-ish but am currently too tired to be mean to anyone."
+	    ]
+	}
+    ]
+}

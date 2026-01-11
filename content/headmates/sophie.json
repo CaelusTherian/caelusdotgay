@@ -1,0 +1,28 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Sophie",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "sophie.png",
+		"species": "puppy",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Particularly enjoys programming and gets dysphoric more than others."
+	    ]
+	}
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Luna",
+		"pronouns": [
+		    "it/its"
+		],
+		"avatar": "luna.png",
+		"species": "puppy",
+		"sexuality": "asexual",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Tends to cofront with Sylvie and Sophie. Prefers 3pp (so it/its rather than you/your in direct address)."
+	    ]
+	}
+    ]
+}

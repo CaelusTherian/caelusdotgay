@@ -1,0 +1,28 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Nadine",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "nadine.png",
+		"species": "human",
+		"sexuality": "pansexual",
+		"romanticism": "omniromantic",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"The system's local goth."
+	    ]
+	}
+    ]
+}

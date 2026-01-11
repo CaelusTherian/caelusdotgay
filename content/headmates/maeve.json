@@ -1,0 +1,28 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Maeve",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "maeve.png",
+		"species": "kitty",
+		"sexuality": "asexual",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Likes computers and meowing. One of the most common fronters."
+	    ]
+	}
+    ]
+}

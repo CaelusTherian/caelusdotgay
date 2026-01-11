@@ -1,0 +1,29 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Esther",
+		"pronouns": [
+		    "she/her",
+		    "fae/faer"
+		],
+		"avatar": "esther.png",
+		"species": "angel",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Sadly quite solitary, so we don't know much about them."
+	    ]
+	}
+    ]
+}

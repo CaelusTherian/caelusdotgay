@@ -1,0 +1,21 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Monika",
+		"pronouns": [
+		    "they/them",
+		    "she/her"
+		],
+		"avatar": "monika.png",
+		"species": "human",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	}
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Maisie",
+		"pronouns": [
+		    "she/her",
+		    "it/its"
+		],
+		"avatar": "maisie.png",
+		"species": "puppy",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": [
+		    "younger sister of Lilith"
+		]
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"Particularly likes Celeste. Sometimes fills in for Sylvie."
+	    ]
+	}
+    ]
+}
