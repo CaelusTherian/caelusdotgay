@@ -1,0 +1,20 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Lucia",
+		"pronouns": [
+		    "she/her"
+		],
+		"avatar": "lucia.png",
+		"species": "kitty",
+		"sexuality": "unknown",
+		"romanticism": "unknown",
+		"relations": []
+	    }
+	}
+    ]
+}
