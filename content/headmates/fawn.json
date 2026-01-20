@@ -1,0 +1,29 @@
+{
+    "sections": [
+	{
+	    "type": "factfile",
+	    "bold_header": true,
+	    "header": "",
+	    "body": {
+		"name": "Fawn",
+		"pronouns": [
+		    "she/her",
+		    "it/its"
+		],
+		"avatar": "fawn.png",
+		"species": "deer",
+		"sexuality": "pansexual",
+		"romanticism": "omniromantic",
+		"relations": []
+	    }
+	},
+	{
+	    "type": "fftext",
+	    "bold_header": false,
+	    "header": "Other details",
+	    "body": [
+		"First deer from our system! :3 (The avatar isn't a deer though.)"
+	    ]
+	}
+    ]
+}
